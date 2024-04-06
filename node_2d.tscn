@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://cedgx4emexvu5"]
+
+[ext_resource type="Script" path="res://data/lines sort/sorter.gd" id="1_wnvgp"]
+[ext_resource type="PackedScene" uid="uid://i8j2mgra8bem" path="res://data/Player/player.tscn" id="4_m0wia"]
+[ext_resource type="Script" path="res://data/enemy/enemy.gd" id="4_qrbfw"]
+[ext_resource type="PackedScene" uid="uid://dgt8ls6gkhbwn" path="res://data/objects/wall1.tscn" id="5_4ealn"]
+[ext_resource type="PackedScene" uid="uid://xapi6aar5432" path="res://data/objects/wall.tscn" id="5_ic3tf"]
+[ext_resource type="PackedScene" uid="uid://ss56m12r21yi" path="res://data/objects/wall6.tscn" id="6_pcibw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s03xw"]
+radius = 20.6813
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LinesSorter" type="Node2D" parent="."]
+script = ExtResource("1_wnvgp")
+
+[node name="Enemy" type="CharacterBody2D" parent="LinesSorter"]
+position = Vector2(185.539, 541.991)
+motion_mode = 1
+platform_floor_layers = 4294901760
+script = ExtResource("4_qrbfw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LinesSorter/Enemy"]
+shape = SubResource("CircleShape2D_s03xw")
+
+[node name="player" parent="LinesSorter" instance=ExtResource("4_m0wia")]
+position = Vector2(175, 302)
+motion_mode = 1
+
+[node name="wall4" parent="LinesSorter" instance=ExtResource("5_ic3tf")]
+position = Vector2(640, -237)
+
+[node name="wall5" parent="LinesSorter" instance=ExtResource("5_4ealn")]
+position = Vector2(1204, 211)
+
+[node name="wall6" parent="LinesSorter" instance=ExtResource("6_pcibw")]
+position = Vector2(484, 263)
+
+[node name="wall3" parent="LinesSorter" instance=ExtResource("5_ic3tf")]
+position = Vector2(995, 372)
+
+[node name="wall2" parent="LinesSorter" instance=ExtResource("5_ic3tf")]
+position = Vector2(692, 426)
+
+[node name="wall" parent="LinesSorter" instance=ExtResource("5_ic3tf")]
+position = Vector2(34, 653)

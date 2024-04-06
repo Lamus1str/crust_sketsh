@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bal4spkedvcwx"]
+
+[ext_resource type="Script" path="res://data/attack/attack.gd" id="1_c6mol"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i8tqd"]
+radius = 116.155
+
+[node name="a1" type="Area2D"]
+script = ExtResource("1_c6mol")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_i8tqd")

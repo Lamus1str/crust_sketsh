@@ -1,0 +1,486 @@
+[gd_scene load_steps=31 format=3 uid="uid://c7s71cantp3k2"]
+
+[ext_resource type="Script" path="res://data/lines sort/sorter.gd" id="1_dnq2e"]
+[ext_resource type="Script" path="res://data/mainlevel.gd" id="1_j3tsr"]
+[ext_resource type="PackedScene" uid="uid://dgt8ls6gkhbwn" path="res://data/objects/wall1.tscn" id="2_75eiw"]
+[ext_resource type="PackedScene" uid="uid://h3g4gr3qg5mv" path="res://data/objects/wall2.tscn" id="3_mdrvq"]
+[ext_resource type="PackedScene" uid="uid://cay2ap7d1knxm" path="res://data/objects/wall3.tscn" id="4_de6ac"]
+[ext_resource type="PackedScene" uid="uid://cvqwc2b5pky2w" path="res://data/objects/wall4.tscn" id="5_3ejan"]
+[ext_resource type="PackedScene" uid="uid://to0qtit6jskn" path="res://data/objects/wall5.tscn" id="6_nking"]
+[ext_resource type="PackedScene" uid="uid://brbv33ob0f3pi" path="res://data/objects/wall9.tscn" id="7_mude3"]
+[ext_resource type="Texture2D" uid="uid://dtw38ica7v112" path="res://graph.png" id="8_2xj6h"]
+[ext_resource type="PackedScene" uid="uid://i8j2mgra8bem" path="res://data/Player/player.tscn" id="9_fpi6s"]
+[ext_resource type="PackedScene" uid="uid://c7qosj308rq4q" path="res://data/objects/wall14.tscn" id="10_j10no"]
+[ext_resource type="PackedScene" uid="uid://o38vrekj5j35" path="res://data/objects/wall13.tscn" id="11_gjnpi"]
+[ext_resource type="PackedScene" uid="uid://dyvogehg2i1pg" path="res://data/objects/wall11.tscn" id="12_k56xp"]
+[ext_resource type="PackedScene" uid="uid://dawn8576cd145" path="res://data/objects/wall12.tscn" id="13_esrh8"]
+[ext_resource type="PackedScene" uid="uid://dfnhaahkwcbf8" path="res://data/objects/wall10.tscn" id="14_ndn0o"]
+[ext_resource type="PackedScene" uid="uid://ss56m12r21yi" path="res://data/objects/wall6.tscn" id="15_5chao"]
+[ext_resource type="PackedScene" uid="uid://d0dm3oeyvi2qd" path="res://data/objects/wall8.tscn" id="16_yvf4k"]
+[ext_resource type="PackedScene" uid="uid://ber8gdug038ty" path="res://data/objects/wall7.tscn" id="17_ocs6e"]
+[ext_resource type="PackedScene" uid="uid://cxjx8d3om8no7" path="res://data/objects/cryst.tscn" id="18_uhjdf"]
+[ext_resource type="PackedScene" uid="uid://c4m35f7vn4ssd" path="res://data/objects/cryst1.tscn" id="19_sk8yj"]
+[ext_resource type="PackedScene" uid="uid://cqkod1uilqfst" path="res://data/enemy/enemy0/enemy.tscn" id="20_sl7gs"]
+[ext_resource type="Texture2D" uid="uid://c2rtctgng6q0g" path="res://data/menu/menu.png" id="21_c1fdn"]
+
+[sub_resource type="Animation" id="Animation_dea6q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect/Menu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ColorRect/Menu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_86it7"]
+resource_name = "game_over"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect/Menu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_4q6l3"]
+resource_name = "start"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect/Menu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oavhv"]
+_data = {
+"RESET": SubResource("Animation_dea6q"),
+"game_over": SubResource("Animation_86it7"),
+"start": SubResource("Animation_4q6l3")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_adymf"]
+blend_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud3rl"]
+atlas = ExtResource("21_c1fdn")
+region = Rect2(37.7245, 73.0955, 1097.48, 569.625)
+
+[sub_resource type="SystemFont" id="SystemFont_aiifn"]
+
+[sub_resource type="Theme" id="Theme_twshm"]
+default_font = SubResource("SystemFont_aiifn")
+
+[node name="root" type="Node2D"]
+script = ExtResource("1_j3tsr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(761, 2356, 558, 1707, 958, 1322, 1079, 1322, 845, 922, 573, 438, -371, 506, -545, 363, -137, -60, -552, -543, -186, -551, 434, -823, 370, -903, 1241, -1265, 302, -942, 275, -1298, -222, -1996, 137, -2068, 3, -2301, 308, -2283, 739, -2238, 1044, -2059, 1332, -1897, 1502, -1700, 1673, -1340, 1915, -882, 1682, -559, 2104, 141, 1826, 333, 1047, 423, 1472, 1262, 1804, 1434, 2068, 1434, 2503, 2239, 1662, 2368)
+
+[node name="floor" type="Node2D" parent="."]
+
+[node name="Polygon2D2" type="Polygon2D" parent="floor"]
+position = Vector2(-109, -43)
+texture = ExtResource("8_2xj6h")
+polygon = PackedVector2Array(1824, 1611, 1695, 1297, 1296, 1233, 704, 1597, 623, 1915, 912, 2160, 1867, 2046)
+
+[node name="Polygon2D" type="Polygon2D" parent="floor/Polygon2D2"]
+position = Vector2(522, 21)
+texture = ExtResource("8_2xj6h")
+polygon = PackedVector2Array(1824, 1611, 1695, 1297, 1296, 1233, 704, 1597, 623, 1915, 912, 2160, 1867, 2046)
+
+[node name="Polygon2D3" type="Polygon2D" parent="floor"]
+position = Vector2(-109, -43)
+texture = ExtResource("8_2xj6h")
+polygon = PackedVector2Array(1824, 1611, 1695, 1297, 1296, 1233, 704, 1597, 623, 1915, 912, 2160, 1867, 2046)
+
+[node name="Polygon2D" type="Polygon2D" parent="floor/Polygon2D3"]
+position = Vector2(714, 464)
+texture = ExtResource("8_2xj6h")
+polygon = PackedVector2Array(1824, 1611, 1695, 1297, 1296, 1233, 704, 1597, 623, 1915, 912, 2160, 1867, 2046)
+
+[node name="Polygon2D2" type="Polygon2D" parent="floor/Polygon2D3"]
+position = Vector2(-52, 454)
+texture = ExtResource("8_2xj6h")
+polygon = PackedVector2Array(1824, 1611, 1695, 1297, 1296, 1233, 704, 1597, 623, 1915, 912, 2160, 1867, 2046)
+
+[node name="Polygon2D3" type="Polygon2D" parent="floor/Polygon2D3"]
+position = Vector2(-873, -1939)
+texture = ExtResource("8_2xj6h")
+polygon = PackedVector2Array(1824, 1611, 1695, 1297, 1296, 1233, 704, 1597, 623, 1915, 912, 2160, 1867, 2046)
+
+[node name="Polygon2D" type="Polygon2D" parent="floor/Polygon2D3/Polygon2D3"]
+position = Vector2(714, 464)
+texture = ExtResource("8_2xj6h")
+polygon = PackedVector2Array(1824, 1611, 1695, 1297, 1296, 1233, 704, 1597, 623, 1915, 912, 2160, 1867, 2046)
+
+[node name="Polygon2D3" type="Polygon2D" parent="floor/Polygon2D3/Polygon2D3"]
+position = Vector2(487, -4)
+texture = ExtResource("8_2xj6h")
+polygon = PackedVector2Array(1824, 1611, 1695, 1297, 1296, 1233, 704, 1597, 623, 1915, 912, 2160, 1867, 2046)
+
+[node name="Polygon2D4" type="Polygon2D" parent="floor/Polygon2D3/Polygon2D3"]
+position = Vector2(1329, 366)
+texture = ExtResource("8_2xj6h")
+polygon = PackedVector2Array(1824, 1611, 1695, 1297, 1296, 1233, 704, 1597, 623, 1915, 912, 2160, 1867, 2046)
+
+[node name="Polygon2D5" type="Polygon2D" parent="floor/Polygon2D3/Polygon2D3"]
+position = Vector2(1099, -185)
+texture = ExtResource("8_2xj6h")
+polygon = PackedVector2Array(1824, 1611, 1695, 1297, 1296, 1233, 704, 1597, 623, 1915, 912, 2160, 1867, 2046)
+
+[node name="Polygon2D6" type="Polygon2D" parent="floor/Polygon2D3/Polygon2D3"]
+position = Vector2(687, -464)
+texture = ExtResource("8_2xj6h")
+polygon = PackedVector2Array(1824, 1611, 1695, 1297, 1296, 1233, 704, 1597, 623, 1915, 912, 2160, 1867, 2046)
+
+[node name="Polygon2D8" type="Polygon2D" parent="floor/Polygon2D3/Polygon2D3"]
+position = Vector2(203, -700)
+texture = ExtResource("8_2xj6h")
+polygon = PackedVector2Array(1824, 1611, 1695, 1297, 1296, 1233, 704, 1597, 623, 1915, 912, 2160, 1263, 2146, 1867, 2046)
+
+[node name="Polygon2D9" type="Polygon2D" parent="floor/Polygon2D3/Polygon2D3"]
+position = Vector2(289, -1195)
+texture = ExtResource("8_2xj6h")
+polygon = PackedVector2Array(1824, 1611, 1695, 1297, 1296, 1233, 704, 1597, 623, 1915, 912, 2160, 1867, 2046)
+
+[node name="Polygon2D7" type="Polygon2D" parent="floor/Polygon2D3/Polygon2D3"]
+position = Vector2(-179, -279)
+texture = ExtResource("8_2xj6h")
+polygon = PackedVector2Array(1824, 1611, 1695, 1297, 1296, 1233, 704, 1597, 623, 1915, 912, 2160, 1867, 2046)
+
+[node name="Polygon2D10" type="Polygon2D" parent="floor/Polygon2D3/Polygon2D3"]
+position = Vector2(1122, -721)
+texture = ExtResource("8_2xj6h")
+polygon = PackedVector2Array(1824, 1611, 1695, 1297, 1296, 1233, 704, 1597, 623, 1915, 912, 2160, 1867, 2046)
+
+[node name="Polygon2D11" type="Polygon2D" parent="floor/Polygon2D3/Polygon2D3"]
+position = Vector2(855, -1185)
+texture = ExtResource("8_2xj6h")
+polygon = PackedVector2Array(1824, 1611, 1695, 1297, 1296, 1233, 704, 1597, 623, 1915, 912, 2160, 1867, 2046)
+
+[node name="Polygon2D12" type="Polygon2D" parent="floor/Polygon2D3/Polygon2D3"]
+position = Vector2(541, -1537)
+texture = ExtResource("8_2xj6h")
+polygon = PackedVector2Array(1824, 1611, 1695, 1297, 1296, 1233, 704, 1597, 623, 1915, 912, 2160, 1867, 2046)
+
+[node name="Polygon2D13" type="Polygon2D" parent="floor/Polygon2D3/Polygon2D3"]
+position = Vector2(20, -1672)
+texture = ExtResource("8_2xj6h")
+polygon = PackedVector2Array(1824, 1611, 1695, 1297, 1296, 1233, 704, 1597, 623, 1915, 912, 2160, 1867, 2046)
+
+[node name="Polygon2D2" type="Polygon2D" parent="floor/Polygon2D3/Polygon2D3"]
+position = Vector2(-52, 454)
+texture = ExtResource("8_2xj6h")
+polygon = PackedVector2Array(1824, 1611, 1695, 1297, 1296, 1233, 704, 1597, 623, 1915, 912, 2160, 1867, 2046)
+
+[node name="Polygon2D" type="Polygon2D" parent="floor"]
+position = Vector2(-240, 192)
+texture = ExtResource("8_2xj6h")
+polygon = PackedVector2Array(886, 146, 1268, 1260, 1775, 1183, 1344, 94)
+
+[node name="LinesSorter" type="Node2D" parent="."]
+script = ExtResource("1_dnq2e")
+
+[node name="wall" parent="LinesSorter" instance=ExtResource("2_75eiw")]
+position = Vector2(2218, 1763)
+
+[node name="wall17" parent="LinesSorter" instance=ExtResource("2_75eiw")]
+position = Vector2(1863, -282)
+
+[node name="wall2" parent="LinesSorter" instance=ExtResource("3_mdrvq")]
+position = Vector2(1011, 1318)
+
+[node name="wall3" parent="LinesSorter" instance=ExtResource("4_de6ac")]
+position = Vector2(1985, 1978)
+
+[node name="wall7" parent="LinesSorter" instance=ExtResource("4_de6ac")]
+position = Vector2(1715, 1442)
+
+[node name="wall4" parent="LinesSorter" instance=ExtResource("5_3ejan")]
+position = Vector2(1146, 2066)
+
+[node name="wall5" parent="LinesSorter" instance=ExtResource("6_nking")]
+position = Vector2(1270, 1710)
+
+[node name="wall6" parent="LinesSorter" instance=ExtResource("7_mude3")]
+position = Vector2(1272, 855)
+
+[node name="wall18" parent="LinesSorter" instance=ExtResource("7_mude3")]
+position = Vector2(1206, -1317)
+
+[node name="player" parent="LinesSorter" instance=ExtResource("9_fpi6s")]
+position = Vector2(1496, 2048)
+
+[node name="wall8" parent="LinesSorter" instance=ExtResource("10_j10no")]
+position = Vector2(1804, 2127)
+
+[node name="wall9" parent="LinesSorter" instance=ExtResource("11_gjnpi")]
+position = Vector2(1646, -941)
+
+[node name="wall10" parent="LinesSorter" instance=ExtResource("12_k56xp")]
+position = Vector2(729, -1082)
+
+[node name="wall11" parent="LinesSorter" instance=ExtResource("13_esrh8")]
+position = Vector2(1117, 1517)
+
+[node name="wall12" parent="LinesSorter" instance=ExtResource("14_ndn0o")]
+position = Vector2(145, -641)
+
+[node name="wall13" parent="LinesSorter" instance=ExtResource("15_5chao")]
+position = Vector2(720, 1568)
+
+[node name="wall14" parent="LinesSorter" instance=ExtResource("6_nking")]
+position = Vector2(655, 1859)
+
+[node name="wall15" parent="LinesSorter" instance=ExtResource("5_3ejan")]
+position = Vector2(676, 2038)
+
+[node name="wall16" parent="LinesSorter" instance=ExtResource("3_mdrvq")]
+position = Vector2(721, 2245)
+
+[node name="wall19" parent="LinesSorter" instance=ExtResource("6_nking")]
+position = Vector2(277, -115)
+
+[node name="wall20" parent="LinesSorter" instance=ExtResource("5_3ejan")]
+position = Vector2(1968, 278)
+
+[node name="wall21" parent="LinesSorter" instance=ExtResource("16_yvf4k")]
+position = Vector2(1307, -1871)
+
+[node name="wall22" parent="LinesSorter" instance=ExtResource("2_75eiw")]
+position = Vector2(826, 719)
+
+[node name="wall23" parent="LinesSorter" instance=ExtResource("4_de6ac")]
+position = Vector2(1818, -648)
+
+[node name="wall24" parent="LinesSorter" instance=ExtResource("5_3ejan")]
+position = Vector2(1927, -843)
+
+[node name="wall25" parent="LinesSorter" instance=ExtResource("15_5chao")]
+position = Vector2(-288, 136)
+
+[node name="wall26" parent="LinesSorter" instance=ExtResource("6_nking")]
+position = Vector2(899, -706)
+
+[node name="wall27" parent="LinesSorter" instance=ExtResource("2_75eiw")]
+position = Vector2(11, -1737)
+
+[node name="wall28" parent="LinesSorter" instance=ExtResource("5_3ejan")]
+position = Vector2(239, -1088)
+
+[node name="wall29" parent="LinesSorter" instance=ExtResource("17_ocs6e")]
+position = Vector2(-467, -445)
+
+[node name="wall30" parent="LinesSorter" instance=ExtResource("12_k56xp")]
+position = Vector2(1811, 343)
+
+[node name="wall31" parent="LinesSorter" instance=ExtResource("14_ndn0o")]
+position = Vector2(869, -333)
+
+[node name="wall33" parent="LinesSorter" instance=ExtResource("17_ocs6e")]
+position = Vector2(393, 571)
+
+[node name="wall34" parent="LinesSorter" instance=ExtResource("15_5chao")]
+position = Vector2(1079, -122)
+
+[node name="wall35" parent="LinesSorter" instance=ExtResource("3_mdrvq")]
+position = Vector2(-5, 486)
+
+[node name="wall36" parent="LinesSorter" instance=ExtResource("3_mdrvq")]
+position = Vector2(-287, 514)
+
+[node name="wall37" parent="LinesSorter" instance=ExtResource("3_mdrvq")]
+position = Vector2(1198, 406)
+
+[node name="wall38" parent="LinesSorter" instance=ExtResource("17_ocs6e")]
+position = Vector2(1682, -1289)
+
+[node name="wall39" parent="LinesSorter" instance=ExtResource("5_3ejan")]
+position = Vector2(1487, -1666)
+
+[node name="wall40" parent="LinesSorter" instance=ExtResource("4_de6ac")]
+position = Vector2(1008, -2067)
+
+[node name="wall42" parent="LinesSorter" instance=ExtResource("16_yvf4k")]
+position = Vector2(685, -2242)
+
+[node name="wall43" parent="LinesSorter" instance=ExtResource("4_de6ac")]
+position = Vector2(317, -2260)
+
+[node name="wall44" parent="LinesSorter" instance=ExtResource("10_j10no")]
+position = Vector2(474, -1263)
+
+[node name="wall45" parent="LinesSorter" instance=ExtResource("17_ocs6e")]
+position = Vector2(70, -2148)
+
+[node name="krust" parent="LinesSorter" instance=ExtResource("18_uhjdf")]
+position = Vector2(575, -1704)
+
+[node name="crust" parent="LinesSorter" instance=ExtResource("19_sk8yj")]
+position = Vector2(975, -1393)
+
+[node name="enemy" parent="LinesSorter" instance=ExtResource("20_sl7gs")]
+position = Vector2(1406, -555)
+
+[node name="enemy2" parent="LinesSorter" instance=ExtResource("20_sl7gs")]
+position = Vector2(58, -404)
+
+[node name="enemy3" parent="LinesSorter" instance=ExtResource("20_sl7gs")]
+position = Vector2(1116, -851)
+
+[node name="enemy4" parent="LinesSorter" instance=ExtResource("20_sl7gs")]
+position = Vector2(1167, 1039)
+
+[node name="enemy5" parent="LinesSorter" instance=ExtResource("20_sl7gs")]
+position = Vector2(209, 162)
+
+[node name="enemy6" parent="LinesSorter" instance=ExtResource("20_sl7gs")]
+position = Vector2(1359, -80)
+
+[node name="enemy7" parent="LinesSorter" instance=ExtResource("20_sl7gs")]
+position = Vector2(551, 73)
+
+[node name="enemy8" parent="LinesSorter" instance=ExtResource("20_sl7gs")]
+position = Vector2(1080, 118)
+
+[node name="enemy9" parent="LinesSorter" instance=ExtResource("20_sl7gs")]
+position = Vector2(739, -197)
+
+[node name="enemy10" parent="LinesSorter" instance=ExtResource("20_sl7gs")]
+position = Vector2(480, -670)
+
+[node name="enemy11" parent="LinesSorter" instance=ExtResource("20_sl7gs")]
+position = Vector2(288, -534)
+
+[node name="enemy16" parent="LinesSorter" instance=ExtResource("20_sl7gs")]
+position = Vector2(668, -589)
+
+[node name="enemy12" parent="LinesSorter" instance=ExtResource("20_sl7gs")]
+position = Vector2(1566, -240)
+
+[node name="enemy13" parent="LinesSorter" instance=ExtResource("20_sl7gs")]
+position = Vector2(785, 201)
+
+[node name="enemy14" parent="LinesSorter" instance=ExtResource("20_sl7gs")]
+position = Vector2(-7, -138)
+
+[node name="enemy15" parent="LinesSorter" instance=ExtResource("20_sl7gs")]
+position = Vector2(-30, 145)
+
+[node name="cryst" parent="LinesSorter" instance=ExtResource("19_sk8yj")]
+position = Vector2(611, -1483)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_oavhv")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HP" type="ProgressBar" parent="CanvasLayer"]
+modulate = Color(1, 0, 0, 1)
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 279.0
+offset_bottom = 29.0
+max_value = 200.0
+value = 200.0
+
+[node name="ENEMIES" type="ProgressBar" parent="CanvasLayer"]
+modulate = Color(0, 1, 0, 1)
+offset_left = -1.0
+offset_top = 32.0
+offset_right = 277.0
+offset_bottom = 59.0
+max_value = 8.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -716.0
+offset_top = -332.0
+offset_right = 2248.0
+offset_bottom = 1212.0
+color = Color(0, 0, 0, 1)
+
+[node name="Menu" type="Sprite2D" parent="CanvasLayer/ColorRect"]
+material = SubResource("CanvasItemMaterial_adymf")
+position = Vector2(1267, 526)
+texture = SubResource("AtlasTexture_ud3rl")
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect/Menu"]
+offset_left = -550.0
+offset_top = 331.0
+offset_right = 714.0
+offset_bottom = 451.0
+theme = SubResource("Theme_twshm")
+text = "Управление: стрелочки и Z.
+Z - собирать кристаллы, ломать камень
+Стрелочки - ходить"

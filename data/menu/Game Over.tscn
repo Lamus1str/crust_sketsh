@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://e15anjqu2sn3"]
+
+[ext_resource type="Script" path="res://data/menu/Game over.gd" id="1_rtyak"]
+[ext_resource type="Texture2D" uid="uid://c2rtctgng6q0g" path="res://data/menu/menu.png" id="2_gbvf2"]
+
+[sub_resource type="Animation" id="Animation_bd8ej"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0km40"]
+resource_name = "r"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lpfw7"]
+_data = {
+"RESET": SubResource("Animation_bd8ej"),
+"r": SubResource("Animation_0km40")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gei76"]
+blend_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d51t8"]
+atlas = ExtResource("2_gbvf2")
+region = Rect2(341.945, 630.99, 455.7, 300.003)
+
+[sub_resource type="SystemFont" id="SystemFont_x8mbe"]
+
+[sub_resource type="Theme" id="Theme_d55or"]
+default_font = SubResource("SystemFont_x8mbe")
+
+[node name="Game over" type="Node2D"]
+script = ExtResource("1_rtyak")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lpfw7")
+}
+
+[node name="Menu" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_gei76")
+position = Vector2(554, 287)
+texture = SubResource("AtlasTexture_d51t8")
+
+[node name="Label" type="Label" parent="Menu"]
+offset_left = -548.0
+offset_top = 238.0
+offset_right = 716.0
+offset_bottom = 358.0
+theme = SubResource("Theme_d55or")
+text = "Соберите 8 летающих кристалов(клавиша Z 2 раза для каждого), 
+а после сомайте камень на проходе(Z). 
+Как найдёте святящесйся крсталл, используйте(Z)."

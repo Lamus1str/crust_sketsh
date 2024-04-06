@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxjx8d3om8no7"]
+
+[ext_resource type="Script" path="res://data/objects/cryst.gd" id="1_0agtu"]
+[ext_resource type="Shader" uid="uid://sq6u3abe2t4i" path="res://data/objects/cryst.tres" id="1_ijcvw"]
+[ext_resource type="Script" path="res://data/lines sort/line.gd" id="1_ru7dg"]
+[ext_resource type="Texture2D" uid="uid://dtw38ica7v112" path="res://graph.png" id="2_7ifew"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uba6s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f0yn5"]
+shader = ExtResource("1_ijcvw")
+
+[node name="wall" type="StaticBody2D"]
+material = SubResource("ShaderMaterial_uba6s")
+script = ExtResource("1_0agtu")
+
+[node name="l2" type="Polygon2D" parent="."]
+material = SubResource("ShaderMaterial_f0yn5")
+position = Vector2(-506, -3682)
+scale = Vector2(1.09867, 1.1485)
+texture = ExtResource("2_7ifew")
+polygon = PackedVector2Array(114.717, 3234.66, 458.736, 3185.03, 702.667, 3171.97, 764.56, 3070.09, 727.547, 2874.69, 679.245, 2741.28, 537.359, 2746.31, 428.679, 2688.41, 160, 2703.52)
+
+[node name="oLine" type="Line2D" parent="."]
+points = PackedVector2Array(-145, -15, 149, 5)
+default_color = Color(1, 1, 1, 0)
+script = ExtResource("1_ru7dg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-103, 47, 47, 90, 149, 27, 64, -63, -95, -60, -174, -4)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-462, -2293)
+texture = ExtResource("2_7ifew")
+polygon = PackedVector2Array(395, 1849, 211, 2389, 656, 2414, 586, 1963)

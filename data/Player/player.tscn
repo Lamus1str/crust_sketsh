@@ -1,0 +1,112 @@
+[gd_scene load_steps=10 format=3 uid="uid://i8j2mgra8bem"]
+
+[ext_resource type="Script" path="res://data/Player/player.gd" id="1_tpcd2"]
+[ext_resource type="Texture2D" uid="uid://dtw38ica7v112" path="res://graph.png" id="2_trjsg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nf2u1"]
+size = Vector2(1152, 868)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_358tw"]
+
+[sub_resource type="Animation" id="Animation_o504b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("b1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasModulate:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dla02"]
+resource_name = "damage"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.486275, 1, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0krdb"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_vgpix"]
+resource_name = "walk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("b1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0349066]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f0om7"]
+_data = {
+"RESET": SubResource("Animation_o504b"),
+"damage": SubResource("Animation_dla02"),
+"idle": SubResource("Animation_0krdb"),
+"walk": SubResource("Animation_vgpix")
+}
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_tpcd2")
+
+[node name="view" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="view"]
+position = Vector2(4, 106)
+shape = SubResource("RectangleShape2D_nf2u1")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_358tw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="b1" type="Polygon2D" parent="."]
+position = Vector2(-707, -828)
+scale = Vector2(0.33125, 0.39726)
+texture = ExtResource("2_trjsg")
+polygon = PackedVector2Array(2099, 1907, 2056, 2099, 2216, 2126, 2185, 1926)
+
+[node name="b2" type="Polygon2D" parent="."]
+position = Vector2(-668, -824)
+scale = Vector2(0.33125, 0.39726)
+texture = ExtResource("2_trjsg")
+polygon = PackedVector2Array(1838.49, 2038.97, 1950.19, 2091.83, 2076.98, 2089.31, 2061.89, 1832.55, 1929.06, 1794.79, 1874.72, 1867.79, 1859.62, 1880.38, 1856.6, 1908.07, 1847.55, 1925.69, 1859.62, 1958.41)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f0om7")
+}
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]

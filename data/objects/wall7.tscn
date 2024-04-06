@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ber8gdug038ty"]
+
+[ext_resource type="Script" path="res://data/lines sort/line.gd" id="1_jng02"]
+[ext_resource type="Texture2D" uid="uid://dtw38ica7v112" path="res://graph.png" id="2_pk682"]
+
+[node name="wall" type="StaticBody2D"]
+
+[node name="oLine" type="Line2D" parent="."]
+points = PackedVector2Array(-250, -178, 283, 347)
+default_color = Color(1, 1, 1, 0)
+script = ExtResource("1_jng02")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-257, -174, 104, 228, 302, 342, 124, 21, 28, -140, -129, -221)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-2167, -1667)
+texture = ExtResource("2_pk682")
+polygon = PackedVector2Array(2010, 1253, 1808, 1500, 2141, 1905, 2325, 2108, 2493, 2104, 2520, 1948, 2252, 1308)

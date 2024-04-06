@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://bumgcfu6k6cho"]
+
+[ext_resource type="Script" path="res://data/menu/Game over.gd" id="1_5n2xf"]
+[ext_resource type="Texture2D" uid="uid://c2rtctgng6q0g" path="res://data/menu/menu.png" id="2_myydc"]
+
+[sub_resource type="Animation" id="Animation_bd8ej"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0km40"]
+resource_name = "r"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lpfw7"]
+_data = {
+"RESET": SubResource("Animation_bd8ej"),
+"r": SubResource("Animation_0km40")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gei76"]
+blend_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d51t8"]
+atlas = ExtResource("2_myydc")
+region = Rect2(132.021, 960.545, 881.02, 489.878)
+
+[node name="Game over" type="Node2D"]
+script = ExtResource("1_5n2xf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lpfw7")
+}
+
+[node name="Menu" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_gei76")
+position = Vector2(554, 287)
+texture = SubResource("AtlasTexture_d51t8")
